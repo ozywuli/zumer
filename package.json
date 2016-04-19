@@ -1,0 +1,19 @@
+{
+  "name": "zumer",
+  "version": "1.0.0",
+  "description": "map like image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozywuli/zumer.git"
+  },
+  "author": "ozy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozywuli/zumer/issues"
+  },
+  "homepage": "https://github.com/ozywuli/zumer#readme"
+}
