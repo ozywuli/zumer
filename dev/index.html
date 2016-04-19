@@ -5,6 +5,12 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+    img {
+        width: 100%;
+    }
+    </style>
 </head>
 <body>
 
@@ -17,7 +23,27 @@
 
 <script>
 
+var flag = 0;
 
+$(document).on('mousedown', function() {
+    flag = 0;
+    console.log('down');
+});
+
+$(document).on('mousemove', function() {
+    flag = 1;
+});
+
+$(document).on('mouseup', function() {
+    console.log('up');
+
+    if (flag === 0) {
+        console.log('click');
+    } else
+    if ( flag === 1 ) {
+        console.log('drag')
+    }
+});
 
 </script>
 
