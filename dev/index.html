@@ -65,6 +65,32 @@
  */
 var flag = 0;
 
+console.log(document.querySelector('img'));
+console.log(document);
+
+var draggable = document.querySelector('img');
+
+draggable.onmousedown = function() {
+    flag = 0;
+    console.log('down');
+}
+draggable.onmousemove = function() {
+    flag = 1;
+    console.log('moving');
+}
+draggable.onmouseup = function() {
+    console.log('up');
+
+    if (flag === 0) {
+        console.log('click');
+    } else
+    if ( flag === 1 ) {
+        console.log('drag')
+    }
+
+}
+
+
 /*$(document).on('mousedown', function() {
     flag = 0;
     console.log('down');
