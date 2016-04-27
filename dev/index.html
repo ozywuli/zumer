@@ -15,17 +15,27 @@
       user-drag: none;
     }
 
-    img:hover {
+    img {
         cursor: -moz-grab;
         cursor: -webkit-grab;
         cursor: grab;    
     }
-    img:active {
+    .mouseDown {
         cursor: -moz-grabbing;
         cursor: -webkit-grabbing;
         cursor: grabbing; 
     }
  
+
+
+
+
+
+
+
+
+
+
 .state-indicator {
     position: absolute;
     top: -999em;
@@ -64,22 +74,42 @@
  * Dragging
  */
 var flag = 0;
-
-console.log(document.querySelector('img'));
-console.log(document);
+var mousePosIni;
+var mousePosEnd;
+var mousePosMov;
 
 var draggable = document.querySelector('img');
 
-draggable.onmousedown = function() {
+draggable.onmousedown = function(e) {
     flag = 0;
-    console.log('down');
+
+    mousePosIni = e.clientY;
+
+    draggable.className += 'mouseDown';
 }
-draggable.onmousemove = function() {
+draggable.onmousemove = function(e) {
     flag = 1;
-    console.log('moving');
+
+
+    mousePosMov = e.clientY;
+
+    if (mousePosIni !== undefined) {
+        if (mousePosMov > mousePosIni) {
+            draggable.style.transform = ('translate3d(10px, 10px, 0)' );
+
+            console.log('going down');
+        } else
+        if (mousePosIni > mousePosMov) {
+            console.log('going up');
+        }
+    }
 }
-draggable.onmouseup = function() {
-    console.log('up');
+draggable.onmouseup = function(e) {
+
+
+    mousePosEnd = e.clientY;
+    mousePosIni = undefined;
+
 
     if (flag === 0) {
         console.log('click');
@@ -88,28 +118,26 @@ draggable.onmouseup = function() {
         console.log('drag')
     }
 
+    draggable.className = '';
+
 }
 
 
-/*$(document).on('mousedown', function() {
-    flag = 0;
-    console.log('down');
-});
 
-$(document).on('mousemove', function() {
-    flag = 1;
-});
 
-$(document).on('mouseup', function() {
-    console.log('up');
 
-    if (flag === 0) {
-        console.log('click');
-    } else
-    if ( flag === 1 ) {
-        console.log('drag')
-    }
-});*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * Media query detection
